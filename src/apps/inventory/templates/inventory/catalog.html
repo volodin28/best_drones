@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Catalog
+{% endblock title %}
+
+{% block content %}
+  <h1>Product List</h1>
+
+  <div class="row">
+    {% for product in products %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.images.all %}{{ product.images.first.image.url }}{% else %}path/to/placeholder/image.jpg{% endif %}" class="card-img-top" alt="{{ product.name }}">
+          </a>
+          <div class="card-body">
+            <h2><a href="{{ product.get_absolute_url }}" class="text-decoration-none">{{ product.name }}</a></h2>
+            <p><strong>Category:</strong><a href="{{ product.category.url }}" class="text-decoration-none"> {{ product.category }}</a></p>
+            <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+            <p class="card-text"><strong>Stock:</strong> {{ product.stock }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
