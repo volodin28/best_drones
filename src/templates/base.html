@@ -9,16 +9,13 @@
         <title>{% block title %}{% endblock title %} - Best Drones</title>
     </head>
     <body>
-        <div>
-            {% block header %}
-                {% include "includes/header.html" %}
-            {% endblock header %}
-
+        {% block header %}
+            {% include "includes/header.html" %}
+        {% endblock header %}
+        <main class="container">
             {% block content %}{% endblock %}
-            {% block footer %}
-
-            {% endblock footer %}
-        </div>
+        </main>
+        {% block footer %}{% endblock footer %}
 
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
 

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     # Internal
     "src.apps.content",
     "src.apps.user",
+    "src.apps.inventory",
     # Third-party
     "allauth",
     "allauth.account",
